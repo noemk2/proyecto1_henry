@@ -3,12 +3,20 @@ from pathlib import Path
 import pandas as pd
 
 app = FastAPI()
-path_df = Path.cwd()  
+path_df = Path.cwd()
 
-hulu = pd.read_csv(path_df / "./app/dataset/hulu.csv")
-amazon = pd.read_csv(path_df/ "./app/dataset/amazon.csv")
-disney = pd.read_csv(path_df / "./app/dataset/disney.csv")
-netflix = pd.read_csv(path_df / "./app/dataset/netflix.csv")
+
+def get_url(url):
+    file_id = url.split('/')[-2]
+    dwn_url = 'https://drive.google.com/uc?id=' + file_id
+    return dwn_url
+
+
+hulu = pd.read_csv(get_url(
+    "https://drive.google.com/file/d/10VVp6r3xUQdPElHyLTGGx1SystX6HNr-/view?usp=sharing"))
+amazon = pd.read_csv(get_url("https://drive.google.com/file/d/1JwVqKONNB5r_BatrfvCqhVmgOXfDMFXM/view?usp=sharing"))
+disney = pd.read_csv(get_url("https://drive.google.com/file/d/1-kgEsnWe5MilmUdxR0w9XZsKgv0CZqQy/view?usp=sharing"))
+netflix = pd.read_csv(get_url("https://drive.google.com/file/d/1AtMmOOhetbpo_MGhEU05QVT4rocyiSXR/view?usp=sharing"))
 
 platforms = {"hulu": hulu, "amazon": amazon,
              "disney": disney, "netflix": netflix}
