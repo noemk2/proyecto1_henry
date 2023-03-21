@@ -29,6 +29,17 @@ netflix = pd.read_csv(get_url(
 platforms = {"hulu": hulu, "amazon": amazon,
              "disney": disney, "netflix": netflix}
 
+# uno = pd.read_csv(get_url(
+#     "https://drive.google.com/file/d/16Eo2OHIKFK131e_gzrPQmJnzbNy9kjZx/view?usp=sharing"))
+# dos = pd.read_csv(get_url(
+#     "https://drive.google.com/file/d/1Ctp2AZH-e4uNckhOZ0C25rADgw07qO-h/view?usp=sharing"))
+# tres = pd.read_csv(get_url(
+#     "https://drive.google.com/file/d/1Bgz6oHf3Pg4q2P2CDuJ8il4LYYBcUhyN/view?usp=sharing"))
+# cuatro = pd.read_csv(get_url(
+#     "https://drive.google.com/file/d/1VLlMerf9VmIB_25aAVJ3eY6WB5oKsZF0/view?usp=sharing"))
+# cinco = pd.read_csv(get_url(
+#     "https://drive.google.com/file/d/1Hw2oGjR97vlm_SxX9HI0v3ed8wl7j8KJ/view?usp=sharing"))
+
 
 df = pd.concat([hulu, amazon, disney, netflix])
 
@@ -73,24 +84,17 @@ async def get_max_duration(year: int = None, platform: str = None, duration_type
 @ app.get("/get_score_count/")
 async def get_score_count(platform: str, scored: float, year: int):
     # ratings
-    uno = pd.read_csv(get_url(
-        "https://drive.google.com/file/d/16Eo2OHIKFK131e_gzrPQmJnzbNy9kjZx/view?usp=sharing"))
-    dos = pd.read_csv(get_url(
-        "https://drive.google.com/file/d/1Ctp2AZH-e4uNckhOZ0C25rADgw07qO-h/view?usp=sharing"))
-    tres = pd.read_csv(get_url(
-        "https://drive.google.com/file/d/1Bgz6oHf3Pg4q2P2CDuJ8il4LYYBcUhyN/view?usp=sharing"))
-    cuatro = pd.read_csv(get_url(
-        "https://drive.google.com/file/d/1VLlMerf9VmIB_25aAVJ3eY6WB5oKsZF0/view?usp=sharing"))
-    cinco = pd.read_csv(get_url(
-        "https://drive.google.com/file/d/1Hw2oGjR97vlm_SxX9HI0v3ed8wl7j8KJ/view?usp=sharing"))
-    seis = pd.read_csv(get_url(
-        "https://drive.google.com/file/d/1_LpMkn3uV0otvWi0JyCwO67qJndDvmj4/view?usp=sharing"))
-    siete = pd.read_csv(get_url(
-        "https://drive.google.com/file/d/1s_dnmpK8j4n73aY-JxsPY2KEAOQhPpTl/view?usp=sharing"))
-    ocho = pd.read_csv(get_url(
-        "https://drive.google.com/file/d/1VDitO3dlGl5aXsRbMYQwjHJ7HGQO9P6p/view?usp=sharing"))
+    # seis = pd.read_csv(get_url(
+    #     "https://drive.google.com/file/d/1_LpMkn3uV0otvWi0JyCwO67qJndDvmj4/view?usp=sharing"))
+    # siete = pd.read_csv(get_url(
+    #     "https://drive.google.com/file/d/1s_dnmpK8j4n73aY-JxsPY2KEAOQhPpTl/view?usp=sharing"))
+    # ocho = pd.read_csv(get_url(
+    #     "https://drive.google.com/file/d/1VDitO3dlGl5aXsRbMYQwjHJ7HGQO9P6p/view?usp=sharing"))
 
-    df_2 = pd.concat([uno, dos, tres, cuatro, cinco, seis, siete, ocho])
+    # df_2 = pd.concat([uno, dos, tres, cuatro, cinco, seis, siete, ocho])
+    df_2 = pd.read_csv(get_url(
+        "https://drive.google.com/file/d/1imopu6fIPBtSUI8K-t_6MhI0sq9jvNe9/view?usp=sharing"))
+
     score = df_2.groupby("movieId")["rating"].mean().reset_index()
     new_df = pd.DataFrame(
         {'id': score["movieId"], 'score': score["rating"]})
