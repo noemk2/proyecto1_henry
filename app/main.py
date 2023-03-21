@@ -3,25 +3,25 @@ from pathlib import Path
 import pandas as pd
 
 app = FastAPI()
+path_df = Path.cwd()  
 
-
-hulu = pd.read_csv(Path.cwd() / "./app/dataset/hulu.csv")
-amazon = pd.read_csv(Path.cwd() / "./app/dataset/amazon.csv")
-disney = pd.read_csv(Path.cwd() / "./app/dataset/disney.csv")
-netflix = pd.read_csv(Path.cwd() / "./app/dataset/netflix.csv")
+hulu = pd.read_csv(path_df / "./app/dataset/hulu.csv")
+amazon = pd.read_csv(path_df/ "./app/dataset/amazon.csv")
+disney = pd.read_csv(path_df / "./app/dataset/disney.csv")
+netflix = pd.read_csv(path_df / "./app/dataset/netflix.csv")
 
 platforms = {"hulu": hulu, "amazon": amazon,
              "disney": disney, "netflix": netflix}
 
 # ratings
-uno = pd.read_csv("./dataset/ratings/1.csv")
-dos = pd.read_csv("./dataset/ratings/2.csv")
-tres = pd.read_csv("./dataset/ratings/3.csv")
-cuatro = pd.read_csv("./dataset/ratings/4.csv")
-cinco = pd.read_csv("./dataset/ratings/5.csv")
-seis = pd.read_csv("./dataset/ratings/6.csv")
-siete = pd.read_csv("./dataset/ratings/7.csv")
-ocho = pd.read_csv("./dataset/ratings/8.csv")
+uno = pd.read_csv(path_df / "./app/dataset/ratings/1.csv")
+dos = pd.read_csv(path_df / "./app/dataset/ratings/2.csv")
+tres = pd.read_csv(path_df / "./app/dataset/ratings/3.csv")
+cuatro = pd.read_csv(path_df / "./app/dataset/ratings/4.csv")
+cinco = pd.read_csv(path_df / "./app/dataset/ratings/5.csv")
+seis = pd.read_csv(path_df / "./app/dataset/ratings/6.csv")
+siete = pd.read_csv(path_df / "./app/dataset/ratings/7.csv")
+ocho = pd.read_csv(path_df / "./app/dataset/ratings/8.csv")
 
 
 df = pd.concat([hulu, amazon, disney, netflix])
