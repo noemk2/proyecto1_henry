@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from pathlib import Path
+# from pathlib import Path
 import pandas as pd
 
 app = FastAPI()
-path_df = Path.cwd()
+# path_df = Path.cwd()
 
 
 def get_url(url):
@@ -22,14 +22,14 @@ platforms = {"hulu": hulu, "amazon": amazon,
              "disney": disney, "netflix": netflix}
 
 # ratings
-uno = pd.read_csv(path_df / "./app/dataset/ratings/1.csv")
-dos = pd.read_csv(path_df / "./app/dataset/ratings/2.csv")
-tres = pd.read_csv(path_df / "./app/dataset/ratings/3.csv")
-cuatro = pd.read_csv(path_df / "./app/dataset/ratings/4.csv")
-cinco = pd.read_csv(path_df / "./app/dataset/ratings/5.csv")
-seis = pd.read_csv(path_df / "./app/dataset/ratings/6.csv")
-siete = pd.read_csv(path_df / "./app/dataset/ratings/7.csv")
-ocho = pd.read_csv(path_df / "./app/dataset/ratings/8.csv")
+uno = pd.read_csv(get_url("https://drive.google.com/file/d/16Eo2OHIKFK131e_gzrPQmJnzbNy9kjZx/view?usp=sharing"))
+dos = pd.read_csv(get_url("https://drive.google.com/file/d/1Ctp2AZH-e4uNckhOZ0C25rADgw07qO-h/view?usp=sharing"))
+tres = pd.read_csv(get_url("https://drive.google.com/file/d/1Bgz6oHf3Pg4q2P2CDuJ8il4LYYBcUhyN/view?usp=sharing"))
+cuatro = pd.read_csv(get_url("https://drive.google.com/file/d/1VLlMerf9VmIB_25aAVJ3eY6WB5oKsZF0/view?usp=sharing"))
+cinco = pd.read_csv(get_url("https://drive.google.com/file/d/1Hw2oGjR97vlm_SxX9HI0v3ed8wl7j8KJ/view?usp=sharing"))
+seis = pd.read_csv(get_url("https://drive.google.com/file/d/1_LpMkn3uV0otvWi0JyCwO67qJndDvmj4/view?usp=sharing"))
+siete = pd.read_csv(get_url("https://drive.google.com/file/d/1s_dnmpK8j4n73aY-JxsPY2KEAOQhPpTl/view?usp=sharing"))
+ocho = pd.read_csv(get_url("https://drive.google.com/file/d/1VDitO3dlGl5aXsRbMYQwjHJ7HGQO9P6p/view?usp=sharing"))
 
 
 df = pd.concat([hulu, amazon, disney, netflix])
